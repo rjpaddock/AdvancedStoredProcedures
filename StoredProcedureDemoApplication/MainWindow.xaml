@@ -1,0 +1,41 @@
+﻿<Window x:Class="StoredProcedureDemoApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StoredProcedureDemoApplication"
+        mc:Ignorable="d"
+        Title="Stored Procedure Demo" Height="900
+        " Width="800">
+    <Grid>
+        <StackPanel>
+            <Label FontSize="34">Number of Records To Import:</Label>
+            <TextBox FontSize="34" Name="NumberToImport">100000</TextBox>
+
+            <Button FontSize="34" Name="ImportSingles" Click="ImportSingles_Click">Import One Record At A Time</Button>
+            <Button FontSize="34" Name="ImportMultiples" Click="ImportMultiples_Click">Batch Import </Button>
+
+
+            <Label FontSize="34">Title Contains:</Label>
+            <TextBox FontSize="34" Name="TitleContains">Star</TextBox>
+
+
+            <Label FontSize="34">Years:</Label>
+            <TextBox FontSize="34" Name="YearsToImport">1977|1980|1982</TextBox>
+
+            <Button FontSize="34" Name="QueryByYear" Click="QueryByYear_Click">Query By Year</Button>
+            <Button FontSize="34" Name="QueryByYearAndName" Click="QueryByYearAndName_Click">Query By Year And Name</Button>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                          HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                <VirtualizingStackPanel Orientation="Horizontal" >
+                    <DataGrid Name="MovieGrid" AutoGenerateColumns="False" FontSize="20">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Year" Binding="{Binding Year}" />
+                            </DataGrid.Columns>
+                    </DataGrid>
+                </VirtualizingStackPanel>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
+</Window>
